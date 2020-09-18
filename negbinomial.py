@@ -17,6 +17,7 @@ def factorial(n):
 '''
 def prob(n, p, r):
     return factorial(n-1)/(factorial(r-1)*factorial(n-r)) * p**r * (1-p)**(n-r)
+print(prob(20, 0.6, 5))
 
 
 '''Hàm infoMeasure(n, p) tính lượng tin có các symbols theo phân bố negative binomial
@@ -39,10 +40,10 @@ def sumProb(n, p, r):
 
 
 '''Hàm approxEntropy(n, p) tính giá trị trung bình lượng tin
-   của tất cả symbol từ 1 đến N
+   của tất cả symbol từ 1 đến n
 '''
 def approxEntropy(n, p, r):
     sum = 0.0
     for i in range (1, n+1):
         sum += infoMeasure(i, p, r)
-    return sum/N
+    return sum/n
