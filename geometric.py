@@ -34,6 +34,5 @@ def sumProb(n, p):
 def approxEntropy(n, p):
     sum = 0.0
     for i in range (1, n+1):
-        sum += infoMeasure(i, p)
-    return sum/n
-
+        sum += infoMeasure(i, p) * prob(i, p)
+    return sum

@@ -10,7 +10,7 @@ def factorial(n):
     return res
 
 
-'''hàm prob(n, p, N) tính xác suất của phân bố negative binomial
+'''hàm prob(n, p, r) tính xác suất của phân bố negative binomial
    3 tham số đầu vào: n - symbol đang cần tính xác suất
                       p - xác suất thành công
                       r - số lần thành công
@@ -41,7 +41,7 @@ def sumProb(N, p, r):
     for i in range (r,N+1):
         s += prob(i, p, r)
     return s
-
+print(sumProb(1000, 0.2, 10))
 
 '''Hàm approxEntropy(N, p, r) tính giá trị trung bình lượng tin
    của tất cả symbol từ r đến N
@@ -49,5 +49,5 @@ def sumProb(N, p, r):
 def approxEntropy(N, p, r):
     sum = 0.0
     for i in range (r, N+1):
-        sum += infoMeasure(i, p, r)
-    return sum/(N-r+1)
+        sum += infoMeasure(i, p, r) * prob(i, p, r)
+    return sum
