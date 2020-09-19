@@ -1,6 +1,6 @@
 import math
 import decimal
-from decimal import Decimal as d
+from decimal import Decimal as d #dùng decimal thay cho float để tính toán chính xác hơn
 
 # Hàm factorial(n) tính n!
 def factorial(n):
@@ -39,7 +39,7 @@ def sumProb(N, p):
     for i in range (0,N+1):
         s += prob(i, p, N)
     return s
-    
+
 
 '''Hàm approxEntropy(N, p) tính giá trị trung bình lượng tin
    của tất cả symbol từ 0 đến N

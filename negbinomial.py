@@ -1,6 +1,6 @@
 import math
 import decimal
-from decimal import Decimal as d
+from decimal import Decimal as d  #dùng decimal thay cho float để tính toán chính xác hơn
 
 # Hàm factorial(n) tính n!
 def factorial(n):
