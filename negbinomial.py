@@ -41,7 +41,7 @@ def sumProb(N, p, r):
     for i in range (r,N+1):
         s += prob(i, p, r)
     return s
-print(sumProb(1000, 0.2, 10))
+    
 
 '''Hàm approxEntropy(N, p, r) tính giá trị trung bình lượng tin
    của tất cả symbol từ r đến N
