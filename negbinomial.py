@@ -1,12 +1,14 @@
 import math
+import decimal
+from decimal import Decimal as d
 
 # Hàm factorial(n) tính n!
 def factorial(n):
-    res = 1
+    res = d('1')
     if n == 1 or n == 0:
         return 1
     for i in range (1,n+1):
-        res *= i
+        res *= d(str(i))
     return res
 
 
@@ -18,7 +20,7 @@ def factorial(n):
 def prob(n, p, r):
     if n < r:
         return 0
-    return factorial(n-1)/(factorial(r-1)*factorial(n-r)) * p**r * (1-p)**(n-r)
+    return factorial(n-1)/(factorial(r-1)*factorial(n-r)) * d(str(p))**d(str(r)) * d(str((1-p)))**d(str((n-r)))
 
 
 '''Hàm infoMeasure(n, p) tính lượng tin có các symbols theo phân bố negative binomial
@@ -29,7 +31,7 @@ def prob(n, p, r):
 def infoMeasure(n, p, r):
     if n < r:
         return 0
-    return -math.log(prob(n, p, r), 2)
+    return -d(str(math.log(prob(n, p, r), 2)))
 
 
 ''' Hàm sumProb(n,p) tính giá trị tổng xác suất của các symbol từ r đến N
@@ -37,7 +39,7 @@ def infoMeasure(n, p, r):
     với N là tổng số phép thử
 '''
 def sumProb(N, p, r):
-    s = 0.0
+    s = d('0')
     for i in range (r,N+1):
         s += prob(i, p, r)
     return s
@@ -47,7 +49,8 @@ def sumProb(N, p, r):
    của tất cả symbol từ r đến N
 '''
 def approxEntropy(N, p, r):
-    sum = 0.0
+    sum = d('0')
     for i in range (r, N+1):
         sum += infoMeasure(i, p, r) * prob(i, p, r)
     return sum
+print(approxEntropy(400, 0.2, 10))
