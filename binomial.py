@@ -28,21 +28,23 @@ def infoMeasure(n, p, N):
     return -math.log(prob(n, p, N), 2)
 
 
-''' Hàm sumProb(n,p) tính giá trị tổng xác suất của các symbol từ 1 đến n
+''' Hàm sumProb(N,p) tính giá trị tổng xác suất của các symbol từ 1 đến N
     cho nguồn có các symbol theo phân bố binomial
+    với N là tổng số phép thử
 '''
-def sumProb(n, p, N):
+def sumProb(N, p):
     s = 0.0
-    for i in range (1,n+1):
+    for i in range (1,N+1):
         s += prob(i, p, N)
     return s
 
 
-'''Hàm approxEntropy(n, p) tính giá trị trung bình lượng tin
+'''Hàm approxEntropy(N, p) tính giá trị trung bình lượng tin
    của tất cả symbol từ 1 đến N
+   với N là tổng số phép thử
 '''
-def approxEntropy(n, p, N):
+def approxEntropy(N, p):
     sum = 0.0
-    for i in range (1, n+1):
+    for i in range (1, N+1):
         sum += infoMeasure(i, p, N)
     return sum/N
