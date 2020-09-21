@@ -53,4 +53,4 @@ def approxEntropy(N, p, r):
     for i in range (r, N+1):
         sum += infoMeasure(i, p, r) * prob(i, p, r)
     return sum
-print(approxEntropy(400, 0.2, 10))
+
